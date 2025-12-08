@@ -920,34 +920,6 @@ iframe {
   }
 }
 
-/* Responsive Design */
-@media (max-width: 968px) {
-  .nav-toggle {
-    display: flex;
-  }
-
-  .nav-menu {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    right: 0;
-    background: var(--white);
-    flex-direction: column;
-    padding: 20px, 0;
-    border-top: 1px solid #e0e0e0;
-    border-bottom: 1px solid #e0e0e0;
-    transform: scaleY(0);
-    transform-origin: top;
-    transition: transform 0.3s;
-  }
-}
-
-@media (min-width: 968px) {
-  .nav-toggle {
-    display: none;
-  }
-}
-
 /* Add these responsive media queries to your existing CSS */
 
 /* Tablet Styles (768px - 968px) */
@@ -989,6 +961,7 @@ iframe {
   /* Hero Section */
   .hero {
     padding-top: 60px;
+    padding-bottom: 40px;
   }
 
   .hero-content {
@@ -996,21 +969,31 @@ iframe {
     gap: 40px;
     height: auto;
     padding-bottom: 40px;
+    align-items: center;
   }
 
   .hero h1 {
     font-size: 2.2rem;
   }
 
-  .hero-image img {
-    height: 500px;
+  .hero-image {
     width: 100%;
-    object-fit: cover;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-image img {
+    height: auto;
+    max-height: 500px;
+    width: 100%;
+    max-width: 100%;
+    object-fit: contain;
   }
 
   .application-form {
     width: 100%;
     margin-bottom: 0;
+    position: static;
   }
 
   /* About Section */
@@ -1097,11 +1080,14 @@ iframe {
   /* Hero Section */
   .hero {
     padding-top: 40px;
+    padding-bottom: 30px;
   }
 
   .hero-content {
     gap: 30px;
     padding-bottom: 30px;
+    height: auto;
+    align-items: flex-start;
   }
 
   .hero h1 {
@@ -1123,14 +1109,28 @@ iframe {
     width: 30px;
   }
 
+  .hero-text {
+    width: 100%;
+  }
+
+  .hero-image {
+    width: 100%;
+    order: 2;
+  }
+
   .hero-image img {
-    height: 350px;
+    height: auto;
+    max-height: 400px;
+    width: 100%;
+    object-fit: contain;
     border-radius: 10px;
   }
 
   .application-form {
     padding: 20px;
     width: 100%;
+    position: static;
+    margin-bottom: 0;
   }
 
   .application-form h3 {
@@ -1336,8 +1336,14 @@ iframe {
   }
 
   .map-placeholder iframe {
+    width: 100% !important;
     height: 300px;
     border-radius: 10px;
+  }
+  
+  .map-placeholder {
+    width: 100%;
+    overflow: hidden;
   }
 
   /* Footer */
@@ -1384,12 +1390,21 @@ iframe {
 
 /* Extra Small Mobile (max-width: 480px) */
 @media (max-width: 480px) {
+  .hero {
+    padding-top: 30px;
+    padding-bottom: 20px;
+  }
+
   .hero h1 {
     font-size: 1.5rem;
   }
 
   .hero-image img {
-    height: 280px;
+    max-height: 300px;
+  }
+
+  .application-form {
+    padding: 15px;
   }
 
   .why-section h2 {
