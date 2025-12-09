@@ -99,23 +99,13 @@ body {
 
 /* Hero Section */
 .hero {
+  display: flex;
   background: url(./../images/background.png) no-repeat center center/cover;
   color: var(--white);
-  padding: 80px 0 100px;
+  padding: 100px 0;
   position: relative;
-  overflow: hidden;
-  min-height: 100vh;
-}
 
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 0;
+  height: 92hevh;
 }
 
 .hero .container {
@@ -127,11 +117,11 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
-  align-items: center;
+  align-items: end;
+  align-self: baseline;
   position: relative;
   z-index: 1;
   width: 100%;
-  min-height: 600px;
 }
 
 .hero-text {
@@ -150,7 +140,7 @@ body {
 }
 
 .hero-label img {
-  width: 40px;
+  width: 50px;
   height: auto;
 }
 
@@ -175,6 +165,7 @@ body {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   width: 100%;
   max-width: 500px;
+  
 }
 
 .application-form h3 {
@@ -288,7 +279,7 @@ body {
 .about {
   padding: 100px 0;
   background: var(--light-bg);
-  z-index: -100;
+  z-index: 1;
 }
 
 .about-content {
@@ -1170,6 +1161,7 @@ iframe {
 
   .hero-label img {
     width: 30px;
+   
   }
 
   .hero-text {
@@ -1179,6 +1171,7 @@ iframe {
   .hero-image {
     width: 100%;
     order: 2;
+     display: none;
   }
 
   .hero-image img {
@@ -1403,7 +1396,7 @@ iframe {
     height: 300px;
     border-radius: 10px;
   }
-  
+
   .map-placeholder {
     width: 100%;
     overflow: hidden;
@@ -1455,7 +1448,7 @@ iframe {
 @media (max-width: 480px) {
   .hero {
     padding-top: 30px;
-    padding-bottom: 20px;
+    padding-bottom: 0;
   }
 
   .hero h1 {
@@ -1464,6 +1457,7 @@ iframe {
 
   .hero-image img {
     max-height: 100px;
+   
   }
 
   .application-form {
