@@ -59,7 +59,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 });
 
 // CONFIGURATION - Replace with your WhatsApp number
-const WHATSAPP_NUMBER = "25427516082"; // Format: country code + number (no + or spaces)
+const WHATSAPP_NUMBER = "254727516082"; // Format: country code + number (no + or spaces)
 const DEFAULT_MESSAGE = "Hello! I have a question about your services.";
 
 const whatsappBtn = document.getElementById("whatsappBtn");
@@ -69,13 +69,20 @@ const sendBtn = document.getElementById("sendBtn");
 const messageInput = document.getElementById("messageInput");
 
 // Toggle popup
-whatsappBtn.addEventListener("click", () => {
+whatsappBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
   whatsappPopup.classList.toggle("active");
 });
 
 // Close popup
-closeBtn.addEventListener("click", () => {
+closeBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
   whatsappPopup.classList.remove("active");
+});
+
+// Prevent popup from closing when clicking inside it
+whatsappPopup.addEventListener("click", (e) => {
+  e.stopPropagation();
 });
 
 // Send message
@@ -101,5 +108,3 @@ document.addEventListener("click", (e) => {
     whatsappPopup.classList.remove("active");
   }
 });
-
-//
