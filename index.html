@@ -59,7 +59,7 @@
       <div class="container">
         <div class="nav-brand">
           <img
-            src="./assets/images/logo/Screenshot-2025-11-19-001149 (1) 2.png"
+            src="./assets/images/Fi/Screenshot-2025-11-19-001149 (1) 2.png"
             alt="Logo"
             class="logo"
           />
@@ -467,7 +467,7 @@
                 Apply now and let us handle your visa process from start to
                 finish.
               </p>
-              <button class="btn btn-primary" onclick="location.href='#home'">Apply Now</button>
+              <button class="btn btn-primary" id="applyNowFooterBtn">Apply Now</button>
               <div class="contact-info">
                 <h3>Contact us</h3>
                 <p>Email: info@iblf.com</p>
@@ -510,6 +510,75 @@
       </div>
     </footer>
 
-      <script src="script.js" defer></script>
+      <!-- Apply Now Modal -->
+    <div class="modal-overlay" id="applyModal">
+      <div class="modal-content">
+        <button class="modal-close-btn" id="closeModalBtn">&times;</button>
+        <div class="application-form">
+          <h3>Need help in Applying your visa?</h3>
+          <form id="visaFormModal" action="https://formsubmit.co/kotigil@iblf.com" method="POST">
+            <!-- FormSubmit Settings -->
+            <input
+              type="hidden"
+              name="_subject"
+              value="VISA APPLICATION FOR WORLDCUP 2026 (Footer Modal)"
+            />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+
+            <!-- Form Fields -->
+            <div class="form-group">
+              <input
+                type="text"
+                name="Full_Name"
+                placeholder="Full name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <input
+                type="email"
+                name="Email_Address"
+                placeholder="Email address"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <input
+                type="tel"
+                name="Phone_Number"
+                placeholder="Phone number"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <select name="Country" required>
+                <option value="">Select country</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="Ghana">Ghana</option>
+                <option value="Kenya">Kenya</option>
+                <option value="South Africa">South Africa</option>
+                <option value="Egypt">Egypt</option>
+                <option value="Ethiopia">Ethiopia</option>
+                <option value="Tanzania">Tanzania</option>
+                <option value="Morocco">Morocco</option>
+                <option value="Algeria">Algeria</option>
+                <option value="Cameroon">Cameroon</option>
+                <option value="Other African Country">
+                  Other African Country
+                </option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js" defer></script>
   </body>
 </html>

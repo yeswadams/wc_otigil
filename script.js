@@ -108,3 +108,43 @@ document.addEventListener("click", (e) => {
     whatsappPopup.classList.remove("active");
   }
 });
+
+// Apply Now Modal Logic
+const applyNowBtn = document.getElementById("applyNowFooterBtn");
+const applyModal = document.getElementById("applyModal");
+const closeModalBtn = document.getElementById("closeModalBtn");
+const visaFormModal = document.getElementById("visaFormModal");
+
+// Open Modal
+if (applyNowBtn) {
+  applyNowBtn.addEventListener("click", (e) => {
+    e.preventDefault(); // Prevent default if any
+    applyModal.classList.add("active");
+  });
+}
+
+// Close Modal button
+if (closeModalBtn) {
+  closeModalBtn.addEventListener("click", () => {
+    applyModal.classList.remove("active");
+  });
+}
+
+// Close Modal when clicking outside
+if (applyModal) {
+  applyModal.addEventListener("click", (e) => {
+    if (e.target === applyModal) {
+      applyModal.classList.remove("active");
+    }
+  });
+}
+
+// Modal Form Submission
+if (visaFormModal) {
+  visaFormModal.addEventListener("submit", (e) => {
+    e.preventDefault();
+    alert("Thank you for your application! We will contact you soon.");
+    visaFormModal.reset();
+    applyModal.classList.remove("active");
+  });
+}
