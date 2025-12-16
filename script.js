@@ -59,7 +59,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 });
 
 // CONFIGURATION - Replace with your WhatsApp number
-const WHATSAPP_NUMBER = "254113234357"; // Format: country code + number (no + or spaces)
+const WHATSAPP_NUMBER = "12028000170"; // Format: country code + number (no + or spaces)
 const DEFAULT_MESSAGE = "Hello! I have a question about your services.";
 
 const whatsappBtn = document.getElementById("whatsappBtn");
