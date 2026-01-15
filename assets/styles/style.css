@@ -1631,3 +1631,11 @@ iframe {
     padding: 10px;
   }
 }
+
+.cta_btns {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 20px;
+  justify-content: space-between;
+
+}
