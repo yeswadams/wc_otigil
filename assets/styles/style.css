@@ -846,6 +846,9 @@ iframe {
   margin: 0 auto;
 }
 
+.faq-header {
+  text-align: left;
+}
 .faq-item {
   margin-bottom: 15px;
   border: 1px solid #e0e0e0;
@@ -893,6 +896,7 @@ iframe {
 .faq-answer p {
   padding: 20px;
   color: var(--text-light);
+  text-align: center;
 }
 
 /* CTA Section */
