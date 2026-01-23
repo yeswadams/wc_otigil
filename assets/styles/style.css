@@ -898,7 +898,7 @@ iframe {
 .faq-answer p {
   padding: 20px;
   color: var(--text-light);
-  text-align: center;
+  text-align: left;
 }
 
 /* CTA Section */
