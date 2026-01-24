@@ -1,55 +1,55 @@
+/* ============================
+   Mobile Navigation
+============================ */
 const navToggle = document.getElementById("navToggle");
 const navMenu = document.getElementById("navMenu");
 
-navToggle.addEventListener("click", () => {
-  navMenu.classList.toggle("active");
-  navToggle.classList.toggle("active");
-});
-
-// Close menu when clicking on a link
-document.querySelectorAll(".nav-menu a").forEach((link) => {
-  link.addEventListener("click", () => {
-    navMenu.classList.remove("active");
-    navToggle.classList.remove("active");
+if (navToggle && navMenu) {
+  navToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+    navToggle.classList.toggle("active");
   });
-});
 
-// FAQ Accordion
+  document.querySelectorAll(".nav-menu a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("active");
+      navToggle.classList.remove("active");
+    });
+  });
+}
+
+/* ============================
+   FAQ Accordion
+============================ */
 const faqItems = document.querySelectorAll(".faq-item");
 
 faqItems.forEach((item) => {
   const question = item.querySelector(".faq-question");
 
+  if (!question) return;
+
   question.addEventListener("click", () => {
     const isActive = item.classList.contains("active");
 
-    // Close all other items
     faqItems.forEach((otherItem) => {
       otherItem.classList.remove("active");
     });
 
-    // Toggle current item
     if (!isActive) {
       item.classList.add("active");
     }
   });
 });
 
-// Form Submission
-const visaForm = document.getElementById("visaForm");
-
-visaForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  alert("Thank you for your application! We will contact you soon.");
-  visaForm.reset();
-});
-
-// Smooth Scrolling
+/* ============================
+   Smooth Scrolling
+============================ */
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
-    e.preventDefault();
     const target = document.querySelector(this.getAttribute("href"));
+
     if (target) {
+      e.preventDefault();
       target.scrollIntoView({
         behavior: "smooth",
         block: "start",
@@ -58,8 +58,23 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// CONFIGURATION - Replace with your WhatsApp number
-const WHATSAPP_NUMBER = "12029485431"; // Format: country code + number (no + or spaces)
+/* ============================
+   Visa Form (INLINE FORM)
+   IMPORTANT: NO preventDefault
+============================ */
+const visaForm = document.getElementById("visaForm");
+
+if (visaForm) {
+  visaForm.addEventListener("submit", () => {
+    alert("Thank you for your application! We will contact you soon.");
+    // Let FormSubmit handle POST naturally
+  });
+}
+
+/* ============================
+   WhatsApp Chat Widget
+============================ */
+const WHATSAPP_NUMBER = "12029485431";
 const DEFAULT_MESSAGE = "Hello! I have a question about your services.";
 
 const whatsappBtn = document.getElementById("whatsappBtn");
@@ -68,25 +83,29 @@ const closeBtn = document.getElementById("closeBtn");
 const sendBtn = document.getElementById("sendBtn");
 const messageInput = document.getElementById("messageInput");
 
-// Toggle popup
-whatsappBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  whatsappPopup.classList.toggle("active");
-});
+if (whatsappBtn && whatsappPopup) {
+  whatsappBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    whatsappPopup.classList.toggle("active");
+  });
+}
 
-// Close popup
-closeBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  whatsappPopup.classList.remove("active");
-});
+if (closeBtn && whatsappPopup) {
+  closeBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    whatsappPopup.classList.remove("active");
+  });
+}
 
-// Prevent popup from closing when clicking inside it
-whatsappPopup.addEventListener("click", (e) => {
-  e.stopPropagation();
-});
+if (whatsappPopup) {
+  whatsappPopup.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+}
 
-// Send message
 function sendWhatsAppMessage() {
+  if (!messageInput) return;
+
   const message = messageInput.value.trim() || DEFAULT_MESSAGE;
   const encodedMessage = encodeURIComponent(message);
   const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
@@ -94,43 +113,50 @@ function sendWhatsAppMessage() {
   window.open(whatsappURL, "_blank");
 }
 
-sendBtn.addEventListener("click", sendWhatsAppMessage);
+if (sendBtn) {
+  sendBtn.addEventListener("click", sendWhatsAppMessage);
+}
 
-messageInput.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") {
-    sendWhatsAppMessage();
-  }
-});
+if (messageInput) {
+  messageInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      sendWhatsAppMessage();
+    }
+  });
+}
 
-// Close popup when clicking outside
 document.addEventListener("click", (e) => {
-  if (!whatsappPopup.contains(e.target) && !whatsappBtn.contains(e.target)) {
+  if (
+    whatsappPopup &&
+    whatsappBtn &&
+    !whatsappPopup.contains(e.target) &&
+    !whatsappBtn.contains(e.target)
+  ) {
     whatsappPopup.classList.remove("active");
   }
 });
 
-// Apply Now Modal Logic
+/* ============================
+   Apply Now Modal
+============================ */
 const applyNowBtn = document.getElementById("applyNowFooterBtn");
 const applyModal = document.getElementById("applyModal");
 const closeModalBtn = document.getElementById("closeModalBtn");
 const visaFormModal = document.getElementById("visaFormModal");
 
-// Open Modal
-if (applyNowBtn) {
+if (applyNowBtn && applyModal) {
   applyNowBtn.addEventListener("click", (e) => {
-    e.preventDefault(); // Prevent default if any
+    e.preventDefault();
     applyModal.classList.add("active");
   });
 }
 
-// Close Modal button
-if (closeModalBtn) {
+if (closeModalBtn && applyModal) {
   closeModalBtn.addEventListener("click", () => {
     applyModal.classList.remove("active");
   });
 }
 
-// Close Modal when clicking outside
 if (applyModal) {
   applyModal.addEventListener("click", (e) => {
     if (e.target === applyModal) {
@@ -139,12 +165,14 @@ if (applyModal) {
   });
 }
 
-// Modal Form Submission
-if (visaFormModal) {
-  visaFormModal.addEventListener("submit", (e) => {
-    e.preventDefault();
-    alert("Thank you for your application! We will contact you soon.");
-    visaFormModal.reset();
+/* ============================
+   Modal Form Submission
+   IMPORTANT: NO preventDefault
+============================ */
+if (visaFormModal && applyModal) {
+  visaFormModal.addEventListener("submit", () => {
+    alert("Thank you for your application! We will contact you shortly.");
     applyModal.classList.remove("active");
+    // FormSubmit will now correctly receive all fields
   });
 }
