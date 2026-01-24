@@ -171,7 +171,7 @@ if (applyModal) {
 ============================ */
 if (visaFormModal && applyModal) {
   visaFormModal.addEventListener("submit", () => {
-    alert("Thank you for your application! We will contact you shortly.");
+    alert("Thank you for your inquiry! We will contact you shortly.");
     applyModal.classList.remove("active");
     // FormSubmit will now correctly receive all fields
   });
