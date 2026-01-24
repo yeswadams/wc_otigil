@@ -846,6 +846,9 @@ iframe {
   margin: 0 auto;
 }
 
+.faq-header {
+  text-align: left;
+}
 .faq-item {
   margin-bottom: 15px;
   border: 1px solid #e0e0e0;
@@ -865,6 +868,7 @@ iframe {
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--primary-blue);
+  text-align: left;
 }
 
 .faq-question:hover {
@@ -884,6 +888,7 @@ iframe {
   overflow: hidden;
   transition: max-height 0.3s ease-out;
   background: var(--light-bg);
+  text-align: left;
 }
 
 .faq-item.active .faq-answer {
@@ -893,6 +898,7 @@ iframe {
 .faq-answer p {
   padding: 20px;
   color: var(--text-light);
+  text-align: left;
 }
 
 /* CTA Section */
